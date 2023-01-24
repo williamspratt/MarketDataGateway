@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway", "MarketDataGateway\MarketDataGateway.csproj", "{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGatewayTests", "MarketDataGatewayTests\MarketDataGatewayTests.csproj", "{23F250D1-0310-4A4E-AF90-6B578855B456}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F250D1-0310-4A4E-AF90-6B578855B456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F250D1-0310-4A4E-AF90-6B578855B456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F250D1-0310-4A4E-AF90-6B578855B456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F250D1-0310-4A4E-AF90-6B578855B456}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9816372B-91AB-49D0-B2FA-0B50E82A7411}
+	EndGlobalSection
+EndGlobal
