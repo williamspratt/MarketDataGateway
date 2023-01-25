@@ -4,7 +4,7 @@ using DataValidationService.Model;
 
 namespace MarketDataGatewayTests.FxDataTests
 {
-    public class NormalDataTest
+    public class ExtremeDataTest
     {
         private IRepositoryService<IMarketDataFx> _repositoryService;
 
@@ -15,12 +15,12 @@ namespace MarketDataGatewayTests.FxDataTests
         }
 
         [Test]
-        public void NormalBidGBPUSD()
+        public void ExtremeBidGBPUSD()
         {
             this._repositoryService = new RepositoryService();
 
             string errorDescription;
-            IMarketDataFx marketDataFx = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
+            IMarketDataFx marketDataFx = new MarketDataFx(true, "GBPUSD", 1m, 0.5);
 
             IMarketDataFx? response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 
@@ -28,12 +28,25 @@ namespace MarketDataGatewayTests.FxDataTests
             else { Assert.Fail(); }
         }
         [Test]
-        public void NormalAskGBPEUR()
+        public void ExtremeAskGBPEUR()
         {
             this._repositoryService = new RepositoryService();
 
             string errorDescription;
-            IMarketDataFx marketDataFx = new MarketDataFx(false, "GBPEUR", 1.14m, 90000);
+            IMarketDataFx marketDataFx = new MarketDataFx(false, "GBPEUR", Decimal.MaxValue, Double.MaxValue);
+
+            IMarketDataFx? response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
+
+            if (response != null && String.IsNullOrWhiteSpace(errorDescription)) { Assert.Pass(); }
+            else { Assert.Fail(); }
+        }
+        [Test]
+        public void ExtremeBidIRRGBP()
+        {
+            this._repositoryService = new RepositoryService();
+
+            string errorDescription;
+            IMarketDataFx marketDataFx = new MarketDataFx(true, "IRRGBP", 0.000019m, 1);
 
             IMarketDataFx? response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 
