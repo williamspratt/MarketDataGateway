@@ -6,23 +6,23 @@ namespace MarketDataGatewayTests.FxDataTests
 {
     public class Tests
     {
-        private IValidationService _validationService;
+        private IRepositoryService<IMarketDataFx> _repositoryService;
 
         [SetUp]
         public void Setup()
         {
-            this._validationService = new ValidationService();
+            this._repositoryService = new RepositoryService();
         }
 
         [Test]
         public void Test1()
         {
-            this._validationService = new ValidationService();
+            this._repositoryService = new RepositoryService();
 
             string errorDescription;
-            IMarketDataFx marketDataFx = new MarketDataFx(Guid.NewGuid().ToString(), DateTime.Now, true, "GBPUSD", 1.23m, 100000);
+            IMarketDataFx marketDataFx = new MarketDataFx(0, DateTime.Now, true, "GBPUSD", 1.23m, 100000);
 
-            _validationService.ValidateMarketDataFx(marketDataFx, out errorDescription);
+            IMarketDataFx response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 
             Assert.Pass();
         }

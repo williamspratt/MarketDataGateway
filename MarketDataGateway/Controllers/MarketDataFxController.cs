@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using MarketDataGateway;
+using DataValidationService.Services;
+using DataValidationService.Model;
+using DataValidationService.Model.Dto;
 
 namespace MarketDataGateway.Controllers
 {
@@ -8,11 +10,24 @@ namespace MarketDataGateway.Controllers
     [ApiController]
     public class MarketDataFxController : ControllerBase
     {
+
+        private IRepositoryService<IMarketDataFx> _repositoryService;
+
+        public MarketDataFxController()
+        {
+            
+            this._repositoryService = new RepositoryService();
+        }
+
+
         // GET: api/<MarketDataFxController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<IMarketDataFx> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _repositoryService.GetAllMarketData();
+
+            //return new MarketDataFx[] { new MarketDataFx(0, DateTime.Now, true, "GBPUSD", 1.23m, 100000) };
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/<MarketDataFxController>/5

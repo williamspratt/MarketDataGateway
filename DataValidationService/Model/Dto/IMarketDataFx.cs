@@ -9,7 +9,7 @@ namespace DataValidationService.Model
     public interface IMarketDataFx
     {
         // will be system generated
-        string uniqueId { get; init; }
+        int id { get; init; }
         DateTime timeStamp { get; init; }
         // will be entered
         bool isBid { get; init; }
