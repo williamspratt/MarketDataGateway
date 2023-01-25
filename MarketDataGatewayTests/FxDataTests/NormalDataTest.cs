@@ -22,7 +22,7 @@ namespace MarketDataGatewayTests.FxDataTests
             string errorDescription;
             IMarketDataFx marketDataFx = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
 
-            IMarketDataFx response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
+            IMarketDataFx? response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 
             Assert.Pass();
         }
