@@ -10,7 +10,7 @@ namespace DataValidationService.Services
     public interface IRepositoryService<T>
     {
         IEnumerable<T> GetAllMarketData();
-        T GetMarketData(int id);
-        T CreateMarketData(T data, out string errorDescription);
+        T? GetMarketData(int id);
+        T? CreateMarketData(T data, out string errorDescription);
     }
 }

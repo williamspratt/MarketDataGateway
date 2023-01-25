@@ -20,11 +20,12 @@ namespace DataValidationService.Services
             this._validationService = new ValidationService();
         }
 
-        IMarketDataFx IRepositoryService<IMarketDataFx>.CreateMarketData(IMarketDataFx data, out string errorDescription)
+        IMarketDataFx? IRepositoryService<IMarketDataFx>.CreateMarketData(IMarketDataFx data, out string errorDescription)
         {
             // validate first
             if (this._validationService.ValidateMarketDataFx(data, out errorDescription))
             {
+                
                 this._repository.Create(data);
                 return data;
             }
@@ -39,9 +40,9 @@ namespace DataValidationService.Services
             return this._repository.GetAll();
         }
 
-        IMarketDataFx IRepositoryService<IMarketDataFx>.GetMarketData(int id)
+        IMarketDataFx? IRepositoryService<IMarketDataFx>.GetMarketData(int id)
         {
-            throw new NotImplementedException();
+            return this._repository.Get(id);
         }
     }
 }

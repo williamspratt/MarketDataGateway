@@ -21,11 +21,18 @@ namespace DataValidationService.Model.Dto
 
         public MarketDataFx(bool isBid, string currencyPair, decimal fxRate, double volume)
         {
+            this.id = GetUniqueId();
+            this.timeStamp = DateTime.Now;
             this.isBid = isBid;
             this.currencyPair = currencyPair;
             this.fxRate = fxRate;
             this.volume = volume;
         }
 
+        private static int GetUniqueId()
+        {
+            Random rnd = new Random();
+            return rnd.Next(1000,9999); // random nums which are 4 digits long
+        }
     }
 }
