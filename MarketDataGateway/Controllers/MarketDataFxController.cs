@@ -10,12 +10,12 @@ namespace MarketDataGateway.Controllers
     [ApiController]
     public class MarketDataFxController : ControllerBase
     {
-
+        private readonly ILogger<MarketDataFxController> _logger;
         private IRepositoryService<IMarketDataFx> _repositoryService;
 
-        public MarketDataFxController()
+        public MarketDataFxController(ILogger<MarketDataFxController> logger)
         {
-            
+            this._logger = logger;
             this._repositoryService = new RepositoryService();
         }
 
@@ -24,10 +24,13 @@ namespace MarketDataGateway.Controllers
         [HttpGet]
         public IEnumerable<IMarketDataFx> Get()
         {
-            return _repositoryService.GetAllMarketData();
+            this._logger.Log(LogLevel.Information, "Get all MarketDataFx");
 
-            //return new MarketDataFx[] { new MarketDataFx(0, DateTime.Now, true, "GBPUSD", 1.23m, 100000) };
-            //return new string[] { "value1", "value2" };
+            MarketDataFx ff = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
+
+            //return _repositoryService.GetAllMarketData();
+
+            return new MarketDataFx[] { ff };
         }
 
         // GET api/<MarketDataFxController>/5
@@ -39,8 +42,22 @@ namespace MarketDataGateway.Controllers
 
         // POST api/<MarketDataFxController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] MarketDataFx value)
         {
+            this._logger.Log(LogLevel.Information, "POST MarketDataFx");
+
+            IMarketDataFx marketDataFx = _repositoryService.CreateMarketData(value, out string errorDescription);
+
+            if (marketDataFx != null)
+            {
+                this._logger.Log(LogLevel.Information, $"SUCCESSFUL create MarketDataFx id={marketDataFx.id}");
+                   
+            }
+            else
+            {
+                this._logger.Log(LogLevel.Error, $"FAILED create MarketDataFx {errorDescription}");
+
+            }
         }
 
         // PUT api/<MarketDataFxController>/5

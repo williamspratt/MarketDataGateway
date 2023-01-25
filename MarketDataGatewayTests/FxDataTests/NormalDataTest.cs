@@ -20,7 +20,7 @@ namespace MarketDataGatewayTests.FxDataTests
             this._repositoryService = new RepositoryService();
 
             string errorDescription;
-            IMarketDataFx marketDataFx = new MarketDataFx(0, DateTime.Now, true, "GBPUSD", 1.23m, 100000);
+            IMarketDataFx marketDataFx = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
 
             IMarketDataFx response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 

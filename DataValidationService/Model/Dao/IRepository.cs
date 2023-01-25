@@ -9,7 +9,7 @@ namespace DataValidationService.Model.Dao
     internal interface IRepository<T>
     {
         IEnumerable<T> GetAll();
-        IEnumerable<T> Get(int id);
+        T? Get(int id);
         T Create(T data);
     }
 }

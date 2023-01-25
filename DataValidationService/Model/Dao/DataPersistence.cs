@@ -21,9 +21,9 @@ namespace DataValidationService.Model.Dao
             return data;
         }
 
-        IEnumerable<IMarketDataFx> IRepository<IMarketDataFx>.Get(int id)
+        IMarketDataFx? IRepository<IMarketDataFx>.Get(int id)
         {
-            throw new NotImplementedException();
+            return _data.Find(d => d.id.Equals(id));
         }
 
         IEnumerable<IMarketDataFx> IRepository<IMarketDataFx>.GetAll()

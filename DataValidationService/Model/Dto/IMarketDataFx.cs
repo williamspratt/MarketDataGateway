@@ -9,8 +9,8 @@ namespace DataValidationService.Model
     public interface IMarketDataFx
     {
         // will be system generated
-        int id { get; init; }
-        DateTime timeStamp { get; init; }
+        int id { get; set; }
+        DateTime timeStamp { get; set; }
         // will be entered
         bool isBid { get; init; }
         string currencyPair { get; init; } // char array 6 would be faster but more hassle
