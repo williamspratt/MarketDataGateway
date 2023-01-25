@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGateway", "MarketDataGateway\MarketDataGateway.csproj", "{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataGateway", "MarketDataGateway\MarketDataGateway.csproj", "{FAD311B0-1C59-44AA-A42D-F13FD2E9B862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataGatewayTests", "MarketDataGatewayTests\MarketDataGatewayTests.csproj", "{23F250D1-0310-4A4E-AF90-6B578855B456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataGatewayTests", "MarketDataGatewayTests\MarketDataGatewayTests.csproj", "{23F250D1-0310-4A4E-AF90-6B578855B456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataValidationService", "DataValidationService\DataValidationService.csproj", "{78D78A6B-A17C-40E8-B2B0-9D0CE7871043}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{23F250D1-0310-4A4E-AF90-6B578855B456}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F250D1-0310-4A4E-AF90-6B578855B456}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F250D1-0310-4A4E-AF90-6B578855B456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D78A6B-A17C-40E8-B2B0-9D0CE7871043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D78A6B-A17C-40E8-B2B0-9D0CE7871043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D78A6B-A17C-40E8-B2B0-9D0CE7871043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D78A6B-A17C-40E8-B2B0-9D0CE7871043}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
