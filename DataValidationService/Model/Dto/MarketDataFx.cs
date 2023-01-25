@@ -11,14 +11,19 @@ namespace DataValidationService.Model.Dto
     public class MarketDataFx : IMarketDataFx
     {
 
-        public int id { get ; set ; }
-        public DateTime timeStamp { get; set; }
+        public int id { get { return _id; } set { this._id = value; } }
+        private int _id;
+        public DateTime timeStamp { get { return _timestamp; } set { this._timestamp = value; } }
+        private DateTime _timestamp;
         public bool isBid { get; init; }
         public string currencyPair { get; init; }
         public decimal fxRate { get; init; }
         public double volume { get; init; }
 
+        public MarketDataFx()
+        {
 
+        }
         public MarketDataFx(bool isBid, string currencyPair, decimal fxRate, double volume)
         {
             this.id = GetUniqueId();
@@ -32,7 +37,8 @@ namespace DataValidationService.Model.Dto
         private static int GetUniqueId()
         {
             Random rnd = new Random();
-            return rnd.Next(1000,9999); // random nums which are 4 digits long
+            int copy = rnd.Next(1000, 9999);
+            return copy; // random nums which are 4 digits long
         }
     }
 }

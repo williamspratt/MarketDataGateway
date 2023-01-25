@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataValidationService.Model.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +31,7 @@ namespace DataValidationService.Model.Dao
         {
             return _data;
         }
+
+        
     }
 }

@@ -11,14 +11,16 @@ namespace MarketDataGateway.Controllers
     public class MarketDataFxController : ControllerBase
     {
         private readonly ILogger<MarketDataFxController> _logger;
-        private IRepositoryService<IMarketDataFx> _repositoryService;
+        private readonly IRepositoryService<IMarketDataFx> _repositoryService;
 
         public MarketDataFxController(ILogger<MarketDataFxController> logger)
         {
             this._logger = logger;
-            this._repositoryService = new RepositoryService();
+            this._repositoryService = Program.globalRepositoryService;
+            // test
+            //InjectDummyData();
         }
-
+        
 
         // GET: api/<MarketDataFxController>
         [HttpGet]
@@ -26,18 +28,23 @@ namespace MarketDataGateway.Controllers
         {
             this._logger.Log(LogLevel.Information, "Get all MarketDataFx");
 
-            MarketDataFx ff = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
+            //MarketDataFx ff = new MarketDataFx(true, "GBPUSD", 1.23m, 100000);
 
-            //return _repositoryService.GetAllMarketData();
+            return _repositoryService.GetAllMarketData();
 
-            return new MarketDataFx[] { ff };
+            //return new MarketDataFx[] { ff };
         }
 
         // GET api/<MarketDataFxController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<IMarketDataFx> Get(int id)
         {
-            return "value";
+            this._logger.Log(LogLevel.Information, $"Get MarketDataFx id={id}");
+
+            IMarketDataFx? response = _repositoryService.GetMarketData(id);
+
+            if (response == null) { return NotFound("NOTHING FOUND MATEY"); }
+            else { return Ok(response); }
         }
 
         // POST api/<MarketDataFxController>
@@ -46,12 +53,12 @@ namespace MarketDataGateway.Controllers
         {
             this._logger.Log(LogLevel.Information, "POST MarketDataFx");
 
-            IMarketDataFx marketDataFx = _repositoryService.CreateMarketData(value, out string errorDescription);
+            IMarketDataFx? marketDataFx = _repositoryService.CreateMarketData(value, out string errorDescription);
 
             if (marketDataFx != null)
             {
                 this._logger.Log(LogLevel.Information, $"SUCCESSFUL create MarketDataFx id={marketDataFx.id}");
-                   
+                
             }
             else
             {
