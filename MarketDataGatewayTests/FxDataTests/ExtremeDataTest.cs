@@ -46,7 +46,7 @@ namespace MarketDataGatewayTests.FxDataTests
             this._repositoryService = new RepositoryService();
 
             string errorDescription;
-            IMarketDataFx marketDataFx = new MarketDataFx(true, "IRRGBP", 0.000019m, 1);
+            IMarketDataFx marketDataFx = new MarketDataFx(true, "EURGBP", 0.000019m, 1);
 
             IMarketDataFx? response = _repositoryService.CreateMarketData(marketDataFx, out errorDescription);
 
