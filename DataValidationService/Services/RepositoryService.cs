@@ -1,12 +1,7 @@
 ﻿using DataValidationService.Model;
 using DataValidationService.Model.Dao;
 using DataValidationService.Model.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+
 
 namespace DataValidationService.Services
 {
@@ -24,7 +19,7 @@ namespace DataValidationService.Services
         IMarketDataFx? IRepositoryService<IMarketDataFx>.CreateMarketData(IMarketDataFx data, out string errorDescription)
         {
             // validate first
-            if (this._validationService.ValidateMarketDataFx(data, out errorDescription))
+            if (this._validationService.ValidateMarketDataFx(data, _repository.GetAll(), out errorDescription))
             {
                 
                 this._repository.Create(data);

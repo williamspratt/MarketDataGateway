@@ -9,6 +9,6 @@ namespace DataValidationService.Services
 {
     public interface IValidationService
     {
-        bool ValidateMarketDataFx(IMarketDataFx marketDataFx, out string errorDescription);
+        bool ValidateMarketDataFx(IMarketDataFx marketDataFx, IEnumerable<IMarketDataFx> allData, out string errorDescription);
     }
 }

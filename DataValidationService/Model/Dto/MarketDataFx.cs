@@ -10,7 +10,7 @@ namespace DataValidationService.Model.Dto
 
     public class MarketDataFx : IMarketDataFx
     {
-
+        
         public int id { get { return _id; } set { this._id = value; } }
         private int _id;
         public DateTime timeStamp { get { return _timestamp; } set { this._timestamp = value; } }
